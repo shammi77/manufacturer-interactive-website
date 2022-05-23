@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Patrs = () => {
+const Parts = () => {
     return (
         <div>
             <h1>parts</h1>
@@ -8,4 +8,4 @@ const Patrs = () => {
     );
 };
 
-export default Patrs;
+export default Parts;
