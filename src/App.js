@@ -28,6 +28,7 @@ function App() {
         </Route>
       </Routes>
       </Navbar>
+      
     </div>
   );
 }
