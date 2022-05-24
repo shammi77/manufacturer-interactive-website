@@ -10,6 +10,7 @@ import MyPortfolio from './pages/MyPortfolio';
 import NotFound from './pages/NotFound';
 import Purchase from './pages/Purchase';
 
+
 function App() {
   return (
     <div>
@@ -24,6 +25,7 @@ function App() {
           </PrivateRoute>
         }></Route>
         <Route path='login' element={<Login></Login>}></Route>
+        
         <Route path='*' element={<NotFound></NotFound>}>
         </Route>
       </Routes>
