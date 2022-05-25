@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import MyPortfolio from './pages/MyPortfolio';
 import NotFound from './pages/NotFound';
 import Purchase from './pages/Purchase';
+import SignUp from './pages/SignUp/SignUp';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Navbar>   
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
+        <Route path='home' element={<Home></Home>}></Route>
         <Route path='blogs' element={<Blogs></Blogs>}></Route>
         <Route path='my-portfolio' element={<MyPortfolio></MyPortfolio>}></Route>
         <Route path='purchase' element={
@@ -25,7 +27,7 @@ function App() {
           </PrivateRoute>
         }></Route>
         <Route path='login' element={<Login></Login>}></Route>
-        
+        <Route path='signup' element={<SignUp></SignUp>}></Route>
         <Route path='*' element={<NotFound></NotFound>}>
         </Route>
       </Routes>

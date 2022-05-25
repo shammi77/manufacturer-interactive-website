@@ -1,7 +1,15 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import {  NavLink } from 'react-router-dom';
+import auth from '../firebase.init';
 
 const Navbar = ({children}) => {
+  //  for signout 
+  const [user, loading, error] = useAuthState(auth);
+  const logout = () => {
+    signOut(auth);
+  }
     return (
         <div className="drawer drawer-end">
         <input id="my-drawer-3" type="checkbox" className="drawer-toggle" /> 
@@ -18,10 +26,11 @@ const Navbar = ({children}) => {
             <div className="flex-none hidden lg:block">
               <ul className="menu menu-horizontal">
                 {/* <!-- Navbar menu content here --> */}
+                <li><NavLink to='/home' className="rounded-lg">Home</NavLink></li>
                 <li><NavLink to='/purchase' className="rounded-lg">Purchase</NavLink></li>
                 <li><NavLink to="/blogs" className="rounded-lg">Blogs</NavLink></li>
                 <li><NavLink to='/my-portfolio' className="rounded-lg">My Portfolio</NavLink></li>
-                <li><NavLink to='/login' className="rounded-lg">Login</NavLink></li>
+                <li>{user ? <button className="btn btn-active btn-ghost" onClick={logout}>Sign Out</button> :    <NavLink to='/login' className="rounded-lg">Login</NavLink>}</li>
               </ul>
             </div>
           </div>
@@ -32,6 +41,7 @@ const Navbar = ({children}) => {
           <label htmlFor="my-drawer-3" className="drawer-overlay"></label> 
           <ul className="menu p-4 overflow-y-auto w-80 bg-base-100">
             {/* <!-- Sidebar content here --> */}
+            <li><NavLink to='/home' className="rounded-lg">Home</NavLink></li>
             <li><NavLink to='/purchase' className="rounded-lg">Purchase</NavLink></li>
             <li><NavLink to="/blogs" className="rounded-lg">Blogs</NavLink></li>
             <li><NavLink to='/my-portfolio' className="rounded-lg"> My Portfolio</NavLink></li>
