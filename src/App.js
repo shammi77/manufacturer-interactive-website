@@ -4,6 +4,10 @@ import './App.css';
 import PrivateRoute from './authentication/PrivateRoute';
 import Navbar from './components/Navbar';
 import Blogs from './pages/Blogs';
+import Dashboard from './pages/Dashboard/Dashboard';
+import MyOrders from './pages/Dashboard/MyOrders';
+import MyProfile from './pages/Dashboard/MyProfile';
+import Review from './pages/Dashboard/Review';
 import Home from './pages/Home/Home';
 import Login from './pages/Login';
 import MyPortfolio from './pages/MyPortfolio';
@@ -26,6 +30,15 @@ function App() {
             <Purchase/>
           </PrivateRoute>
         }></Route>
+        <Route path='dashboard' element={
+          <PrivateRoute>
+            <Dashboard/>
+          </PrivateRoute>
+        }>
+          <Route index element={<MyProfile></MyProfile>}></Route>
+          <Route path='review' element={<Review></Review>}></Route>
+          <Route path='order' element={<MyOrders></MyOrders>}></Route>
+        </Route>
         <Route path='login' element={<Login></Login>}></Route>
         <Route path='signup' element={<SignUp></SignUp>}></Route>
         <Route path='*' element={<NotFound></NotFound>}>

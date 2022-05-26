@@ -3,6 +3,7 @@ import Part from './Part';
 
 const AvailableParts = () => {
     const [parts,setParts]=useState([]);
+    
 
     useEffect(()=>{
         fetch('http://localhost:5000/part')

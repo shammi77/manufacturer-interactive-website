@@ -30,6 +30,9 @@ const Navbar = ({children}) => {
                 <li><NavLink to='/purchase' className="rounded-lg">Purchase</NavLink></li>
                 <li><NavLink to="/blogs" className="rounded-lg">Blogs</NavLink></li>
                 <li><NavLink to='/my-portfolio' className="rounded-lg">My Portfolio</NavLink></li>
+                {
+                  user && <li><NavLink to='/dashboard' className="rounded-lg">Dashboard</NavLink></li>
+                }
                 <li>{user ? <button className="btn btn-active btn-ghost" onClick={logout}>Sign Out</button> :    <NavLink to='/login' className="rounded-lg">Login</NavLink>}</li>
               </ul>
             </div>
