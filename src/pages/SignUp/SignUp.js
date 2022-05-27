@@ -44,16 +44,17 @@ const SignUp = () => {
     );
   }
 
-  if (token) {
+  if (user || gUser) {
+    console.log(user || gUser);
 
-    navigate('/home');
+    
   }
 
   const onSubmit = async data => {
      await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
     console.log('update completed successfully');
-
+    navigate('/home');
     
   };
 
