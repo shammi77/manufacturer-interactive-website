@@ -44,9 +44,9 @@ const SignUp = () => {
     );
   }
 
-  if (user || gUser) {
-    console.log(user || gUser);
-
+  if (token) {
+    // console.log(user || gUser);
+    navigate('/home');
     
   }
 
@@ -54,7 +54,7 @@ const SignUp = () => {
      await createUserWithEmailAndPassword(data.email, data.password);
     await updateProfile({ displayName: data.name });
     console.log('update completed successfully');
-    navigate('/home');
+  
     
   };
 
